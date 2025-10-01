@@ -1,16 +1,31 @@
 import express from "express";
-import { fileURLToPath } from "url";
-import path, { dirname } from "path";
+import type { Request } from "express";
+import cors from "cors";
 import catalogRouter from "./routes/catalogRouter.ts";
+import skinsRouter from "./routes/skinsRouter.ts";
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-app.set('views', path.join(__dirname, '../src/views'));
-app.set('view engine', 'ejs');
+app.options('/skins/:skinId', cors())
+let dynamicCorsOptions = function (req: Request, callback: Function) {
+    let corsOptions;
+    if (req.path.startsWith('/auth/connect/')) {
+      //change to frontend website link
+      corsOptions = {
+        origin: "http://localhost:6543",
+        credentials: true,
+      };
+    } else { //not exactly sure how this affects preflight
+        corsOptions = { origin: '*' };
+    }
+    callback(null, corsOptions)
+};
 
+app.use(cors(dynamicCorsOptions));
+
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use('/', catalogRouter);
+app.use('/skins', skinsRouter);
 
 export default app;
