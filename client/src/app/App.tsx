@@ -1,12 +1,16 @@
-import { useEffect, useState } from 'react'
-import reactLogo from '../assets/react.svg'
-import viteLogo from '../../public/favicon.ico'
-import './App.css'
+import { useEffect, useState } from "react";
+import reactLogo from "../assets/react.svg";
+import viteLogo from "../../public/favicon.ico";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-  const [info, setInfo] = useState<any[]>();
-  
+  const [count, setCount] = useState(0);
+
+  interface info {
+    id: number;
+    name: string;
+  }
+  const [info, setInfo] = useState<info[] | null>(null);
 
   useEffect(() => {
     const fetchSkins = async () => {
@@ -20,13 +24,13 @@ function App() {
               setInfo(data);
             });
         } else {
-          const data = JSON.parse(sessionStorage.getItem('name') || 'null');
+          const data = JSON.parse(sessionStorage.getItem("name") || "null");
           // doesn't rerender
           setInfo(data);
         }
       } catch (error) {
-        console.error('Error fetching name', error);
-      } 
+        console.error("Error fetching name", error);
+      }
     };
     fetchSkins();
   }, [setInfo]);
@@ -34,10 +38,7 @@ function App() {
   return (
     <>
       <div>
-        <div>{info &&
-        info.map((product) => (
-          <h1>{product.name}</h1>
-        ))}</div>
+        <div>{info && info.map((product) => <h1>{product.name}</h1>)}</div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -57,9 +58,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-
     </>
-  )
+  );
 }
 
-export default App
+export default App;
