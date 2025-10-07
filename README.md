@@ -6,10 +6,13 @@ Art and UI Design: Thanh Nguyen
 
 Passion Project meant to help players keep track of their favorite skins and when they go on sale all in one place. For questions, please contact us via Kenny’s Linkedin inbox:
 Postgres + TypeScript + Express
+
+github icon: https://devicon.dev/
+other icons: https://uxwing.com/license/
 //TODO (have some time constraints atm)
 
 - UI component based
-- populate DB with CDD using script referencing wiki, if too slow use backup (use CDD cdn)
+- populate DB with CDD raw json using script referencing wiki
 - better description + mention communityDragon + skinSpotlights + Khada + Official Wiki, linkedIN links, no AI, icon
 - tests front/back
 - catalog functionality first (view skins)
@@ -18,11 +21,12 @@ Postgres + TypeScript + Express
 - allow logins (not sure if possible yet, so can save wishlist across local wipes, should take prior over local)
 - if logins work, email (validate) when sale (prob use db)
 - accessbility
-- cache for performance
+- pagination?
 - future plans/features (keep working on this + try get job + gamejam + Riot hackathon, maybe wiki for Bandletale) i.e. roadmap
 
 optional
 
+- use cloudflare r2 to host images (not sure how much, hopefully free) the cache images too (this is so not rely on CDD for images) 
 - backup db with pgdump and RLS db?
 - weekly sales includes hextech rotation (maybe super limited stuff like that jax skin)
 - newest skins + patch

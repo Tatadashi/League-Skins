@@ -1,4 +1,34 @@
-:root {
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-navy-blue: #111428;
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-navy-blue;
+  }
+}
+
+@layer components {
+  .header-link {
+    @apply aspect-square bg-cover cursor-pointer rounded-full;
+  }
+}
+
+@layer util {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-btwn {
+    @apply flex justify-between;
+  }
+}
+
+/* :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +95,4 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
