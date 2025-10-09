@@ -28,7 +28,10 @@ export default function Header() {
             className="header-link bg-[url(assets/darkMode.svg)] dark:bg-[url(assets/lightMode.svg)] dark:invert"
             aria-label="Change Theme"
           ></button>
-          <Link to="/about" className="header-link bg-gray-500"></Link>
+          <Link
+            to="/about"
+            className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] invert dark:invert-0"
+          ></Link>
         </div>
       </nav>
     </header>

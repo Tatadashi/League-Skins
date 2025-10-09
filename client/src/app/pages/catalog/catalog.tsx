@@ -1,9 +1,11 @@
 import Header from "../../../components/header/header";
+import Title from "../../../components/title/title";
 export default function Catalog() {
   return (
     <>
-      <Header></Header>
-      <div className="bg-gray-500 dark:bg-black h-dvh"></div>
+      <Header />
+      <Title />
+      <div className="h-dvh"></div>
     </>
   );
 }

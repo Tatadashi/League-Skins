@@ -1,20 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-navy-blue: #111428;
+  --font-roboto: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-roman:
+    "Times New Roman", system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 @layer base {
   body {
-    @apply bg-white dark:bg-navy-blue;
+    @apply bg-blue-300 dark:bg-navy-blue;
   }
 }
 
 @layer components {
   .header-link {
     @apply aspect-square bg-cover cursor-pointer rounded-full;
+  }
+
+  .title-text {
+    @apply font-thin font-roman italic text-4xl text-black dark:text-white tracking-widest;
+  }
+
+  .title-sword {
+    @apply aspect-[4/1] grow bg-cover bg-[url(src/assets/Aatrox_Sword_light.PNG)] dark:bg-[url(src/assets/Aatrox_Sword_dark.PNG)] mt-5;
   }
 }
 

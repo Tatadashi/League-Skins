@@ -13,7 +13,6 @@ export const setTheme = (theme: string) => {
 //match user selected (localStorage) theme on start up or system theme if not selected
 export const initializeTheme = () => {
   document.addEventListener("DOMContentLoaded", () => {
-    localStorage.clear();
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) &&

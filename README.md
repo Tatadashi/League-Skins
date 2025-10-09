@@ -9,6 +9,7 @@ Postgres + TypeScript + Express
 
 github icon: https://devicon.dev/
 other icons: https://uxwing.com/license/
+Roboto (sidebar/about) font: https://fonts.google.com/specimen/Roboto
 //TODO (have some time constraints atm)
 
 - UI component based
