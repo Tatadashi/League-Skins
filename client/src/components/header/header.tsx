@@ -31,6 +31,7 @@ export default function Header() {
           <Link
             to="/about"
             className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] invert dark:invert-0"
+            aria-label="user"
           ></Link>
         </div>
       </nav>
