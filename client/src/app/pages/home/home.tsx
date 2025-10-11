@@ -3,16 +3,14 @@ import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
 import Banner from "../../../components/bannerArt/banner";
 
-export default function About() {
+export default function Home() {
   return (
     <>
       <Header />
       <Title />
       <div className="page-layout">
         <Sidebar />
-        <div>
-          <h1>About</h1>
-        </div>
+        <div />
         <Banner />
       </div>
     </>

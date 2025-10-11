@@ -14,7 +14,7 @@ export default function Header() {
   return (
     <header className="flex-center md:mx-10">
       <nav
-        className="h-[15vh] md:h-[9vh] [@media(max-height:640px)]:h-[20vh] p-3 flex-btwn grow"
+        className="flex-btwn grow h-[15vh] md:h-[9vh] [@media(max-height:640px)]:h-[20vh] p-3"
         aria-label="Supplementary navigation"
       >
         <Link

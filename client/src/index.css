@@ -5,6 +5,7 @@
 
 @theme {
   --color-navy-blue: #111428;
+  --color-dusk-blue: #2e3461;
   --font-roboto: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-roman:
     "Times New Roman", system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -12,13 +13,20 @@
 
 @layer base {
   body {
-    @apply bg-blue-300 dark:bg-navy-blue;
+    @apply bg-blue-300 dark:bg-navy-blue font-roboto text-black dark:text-white;
+  }
+
+  button,
+  button:focus,
+  a,
+  a:focus {
+    @apply cursor-pointer hover:brightness-300 hover:opacity-70 hover:outline-3 outline-amber-400;
   }
 }
 
 @layer components {
   .header-link {
-    @apply aspect-square bg-cover cursor-pointer rounded-full;
+    @apply aspect-square bg-cover rounded-full;
   }
 
   .title-text {
@@ -27,6 +35,11 @@
 
   .title-sword {
     @apply aspect-[4/1] grow bg-cover bg-[url(src/assets/Aatrox_Sword_light.PNG)] dark:bg-[url(src/assets/Aatrox_Sword_dark.PNG)] mt-5;
+  }
+
+  /* neeko is 255px x 1100px */
+  .page-layout {
+    @apply grid grid-cols-[110px_1fr_1fr] sm:grid-cols-[110px_1fr_255px] h-[1100px];
   }
 }
 

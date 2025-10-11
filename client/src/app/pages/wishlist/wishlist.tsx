@@ -3,7 +3,7 @@ import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
 import Banner from "../../../components/bannerArt/banner";
 
-export default function About() {
+export default function Wishlist() {
   return (
     <>
       <Header />
@@ -11,7 +11,7 @@ export default function About() {
       <div className="page-layout">
         <Sidebar />
         <div>
-          <h1>About</h1>
+          <h1>Wishlist</h1>
         </div>
         <Banner />
       </div>
