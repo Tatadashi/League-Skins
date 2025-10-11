@@ -30,7 +30,7 @@ export default function Header() {
           ></button>
           <Link
             to="/about"
-            className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] invert dark:invert-0"
+            className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] hover:brightness-300 invert dark:invert-0"
             aria-label="user"
           ></Link>
         </div>

@@ -2,6 +2,7 @@ import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
 import Banner from "../../../components/bannerArt/banner";
+import Footer from "../../../components/footer/footer";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <div />
         <Banner />
       </div>
+      <Footer />
     </>
   );
 }

@@ -20,7 +20,7 @@
   button:focus,
   a,
   a:focus {
-    @apply cursor-pointer hover:brightness-300 hover:opacity-70 hover:outline-3 outline-amber-400;
+    @apply cursor-pointer hover:outline-3 outline-amber-800;
   }
 }
 

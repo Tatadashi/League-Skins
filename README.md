@@ -1,6 +1,6 @@
 # League-Skins
 
-League Skins isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
+"League Skins" isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
 
 Passion Project meant to help players keep track of their favorite skins and when they go on sale all in one place. For questions, please contact us via Kenny’s Linkedin inbox:
 
