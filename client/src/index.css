@@ -39,7 +39,7 @@
 
   /* neeko is 255px x 1100px */
   .page-layout {
-    @apply grid grid-cols-[110px_1fr_1fr] sm:grid-cols-[110px_1fr_255px] h-[1100px];
+    @apply grid grid-cols-[110px_1fr] sm:grid-cols-[110px_1fr_255px] h-[1100px];
   }
 }
 

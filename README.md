@@ -38,18 +38,16 @@ Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 
 # Roadmap
 
+- pagination?
 - UI component based
 - populate DB with CDD raw json using script referencing wiki
 - update DB show differences
-- tests front/back
 - filter skinlines
 - sort alphabetical, release, champion (alphabetical), tier
 - save to wishlist (uses local)
 - allow logins (not sure if possible yet, so can save wishlist across local wipes, should take prior over local)
 - if logins work, email (validate) when sale (prob use db)
-- accessbility
-- pagination?
-- future plans/features (keep working on this + try get job + gamejam + Riot hackathon, maybe wiki for Bandletale) i.e. roadmap
+- tests front/back
 
 optional
 - more sorting categories
