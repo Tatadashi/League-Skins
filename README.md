@@ -39,18 +39,16 @@ Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 # Roadmap
 
 - pagination?
-- UI component based
-- populate DB with CDD raw json using script referencing wiki
-- update DB show differences
 - filter skinlines
 - sort alphabetical, release, champion (alphabetical), tier
 - save to wishlist (uses local)
 - allow logins (not sure if possible yet, so can save wishlist across local wipes, should take prior over local)
 - if logins work, email (validate) when sale (prob use db)
 - tests front/back
+- update DB show differences
 
 optional
-- more sorting categories
+- more sorting categories (classes, roles, regions)
 - use cloudflare r2 to host images (not sure how much, hopefully free) the cache images too (this is so not rely on CDD for images) 
 - backup db with pgdump and RLS db?
 - weekly sales includes hextech rotation (maybe super limited stuff like that jax skin)

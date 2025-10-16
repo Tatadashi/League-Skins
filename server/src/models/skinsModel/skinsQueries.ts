@@ -6,3 +6,7 @@ export async function getSkin(id: number) {
   );
   return rows;
 }
+
+//get skins from champ
+//get skins from rarity tier
+//get skins where name similar to string

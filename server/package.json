@@ -9,7 +9,7 @@
     "dev": "concurrently \"tsc --noEmit -w\" \"tsx watch src/server.ts\"",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "populate": "tsc --noEmit && tsx src/models/populateCatalog.ts",
+    "populate": "tsc --noEmit && tsx src/models/champions/populateChampion.ts",
     "prettier": "prettier . --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix"
@@ -20,11 +20,13 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.3",
+    "@types/jsdom": "^27.0.0",
     "@types/node": "^24.5.2",
     "@types/pg": "^8.15.5",
     "concurrently": "^9.2.1",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
+    "jsdom": "^27.0.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.6",
     "typescript": "^5.9.2",

@@ -6,6 +6,7 @@
 @theme {
   --color-navy-blue: #111428;
   --color-dusk-blue: #2e3461;
+  --color-tan: #FFE6BD;
   --font-roboto: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-roman:
     "Times New Roman", system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -31,10 +32,6 @@
 
   .title-text {
     @apply font-thin font-roman italic text-4xl text-black dark:text-white tracking-widest;
-  }
-
-  .title-sword {
-    @apply aspect-[4/1] grow bg-cover bg-[url(src/assets/Aatrox_Sword_light.PNG)] dark:bg-[url(src/assets/Aatrox_Sword_dark.PNG)] mt-5;
   }
 
   /* neeko is 255px x 1100px */

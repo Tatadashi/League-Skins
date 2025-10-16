@@ -13,7 +13,7 @@ export default function Title() {
         </div>
       </div>
       <div className="md:flex h-[4vh] md:h-[20vh] lg:h-[32vh]">
-        <div className="title-sword invisible md:visible" />
+        <div className="grow aspect-[4/1] bg-cover bg-[url(src/assets/Aatrox_Sword_light.PNG)] dark:bg-[url(src/assets/Aatrox_Sword_dark.PNG)] mt-5 hidden md:block" />
       </div>
     </div>
   );
