@@ -1,9 +1,7 @@
-import { skinsPool } from "./skinsPool.ts";
+import { pool } from "../pool.ts";
 
 export async function getSkin(id: number) {
-  const { rows } = await skinsPool.query(
-    `SELECT * FROM skins WHERE id = ${id}`,
-  );
+  const { rows } = await pool.query(`SELECT * FROM skins WHERE id = ${id}`);
   return rows;
 }
 

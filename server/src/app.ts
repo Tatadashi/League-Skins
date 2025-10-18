@@ -2,11 +2,13 @@ import express from "express";
 import type { Request } from "express";
 import cors, { type CorsOptions } from "cors";
 import catalogRouter from "./routes/catalogRouter.ts";
-import skinsRouter from "./routes/skinsRouter.ts";
+import championRouter from "./routes/championRouter.ts";
+import skinRouter from "./routes/skinRouter.ts";
 
 const app = express();
 
-app.options("/skins/:skinId", cors());
+app.options("/champion/:championId", cors());
+app.options("/skin/:skinId", cors());
 
 const dynamicCorsOptions = function (
   req: Request,
@@ -31,6 +33,7 @@ app.use(cors(dynamicCorsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/", catalogRouter);
-app.use("/skins", skinsRouter);
+app.use("/champion", championRouter);
+app.use("/skin", skinRouter);
 
 export default app;

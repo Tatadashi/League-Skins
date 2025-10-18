@@ -10,7 +10,7 @@ interface championProps {
 
 async function getDatesHtml() {
   return fetch(
-    "https://wiki.leagueoflegends.com/en-us/List_of_champions#References"
+    "https://wiki.leagueoflegends.com/en-us/List_of_champions#References",
   )
     .then((response) => response.text())
     .then((html) => {
@@ -23,7 +23,7 @@ async function getDatesHtml() {
 
 async function getChampIDs() {
   return fetch(
-    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json"
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json",
   )
     .then((response) => response.json())
     .catch((error) => {
@@ -31,18 +31,18 @@ async function getChampIDs() {
     });
 }
 
-
 const champReleases: { name: string; release_date: string }[] = [];
 const html: string = await getDatesHtml();
 const dom = new JSDOM(html);
 const datesParentElement = dom.window.document.querySelectorAll(
-  ".article-table tbody tr"
+  ".article-table tbody tr",
 );
 
 datesParentElement.forEach((date, index) => {
   if (index === 0) return;
 
-  let champName: string | null = date.children[0].getAttribute("data-sort-value");
+  let champName: string | null =
+    date.children[0].getAttribute("data-sort-value");
   if (!champName) return;
 
   champName = champName.replace("'/g", "//'");

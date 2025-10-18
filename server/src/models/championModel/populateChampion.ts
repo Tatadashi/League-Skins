@@ -1,5 +1,5 @@
 import dotenv from "dotenv";
-import championJSON from "./scrapeChampID.ts";
+import championJSON from "./scrapeChampionInfo.ts";
 import { Client } from "pg";
 
 dotenv.config();
@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS champions (
   square_url TEXT,
   release_date DATE,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT current_timestamp(0)
-  );`
-  
+  );`;
+
 const insertTableSQL = `INSERT INTO champions
 SELECT *
 FROM json_to_recordset($1) AS x(id INT, name TEXT, alias TEXT, square_url TEXT, release_date DATE); 
@@ -35,7 +35,7 @@ async function main() {
     connectionString: process.env.DB_CONNECTION_STRING,
   });
   await client.connect();
-  await client.query(createTableSQL)
+  await client.query(createTableSQL);
   await client.query(insertTableSQL, [championJSON]);
   await client.end();
   console.log("done");

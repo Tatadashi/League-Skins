@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
@@ -5,40 +6,40 @@ import Banner from "../../../components/bannerArt/banner";
 import Footer from "../../../components/footer/footer";
 import ChampDisplay from "../../../feature/squareDisplay/champDisplay/champDisplay";
 
+export interface Champ {
+  id: number;
+  name: string;
+  alias: string;
+  square_url: string;
+  release_date: Date;
+  created_at?: Date;
+}
+
 export default function Home() {
-  //will be a state
-  const champList: { name: string; url: string; id: number }[] = [
-    {
-      name: "Heimerdinger",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 0,
-    },
-    {
-      name: "Aatrox",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 1,
-    },
-    {
-      name: "Draven",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 2,
-    },
-    {
-      name: "Malzahar",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 3,
-    },
-    {
-      name: "Lux",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 4,
-    },
-    {
-      name: "Gragas",
-      url: "/src/assets/Helmet_Bro_profileicon.png",
-      id: 5,
-    },
-  ];
+  const [champions, setChampions] = useState<Champ[]>();
+
+  useEffect(() => {
+    const fetchChamps = async () => {
+      try {
+        // localStorage.clear();
+        if (!("champs" in localStorage)) {
+          fetch("http://localhost:6543/champion")
+            .then((response) => response.json())
+            .then((data) => {
+              localStorage.setItem("champs", JSON.stringify(data));
+              setChampions(data);
+            });
+        } else {
+          const data = JSON.parse(String(localStorage.getItem("champs")));
+          setChampions(data);
+        }
+      } catch (error) {
+        console.error("Error fetching champs", error);
+      }
+    };
+    fetchChamps();
+  }, [setChampions]);
+
   return (
     <>
       <Header />
@@ -47,7 +48,7 @@ export default function Home() {
         <Sidebar />
         {/* sort + filter and pages */}
         <div>
-          <ChampDisplay champList={champList} />
+          <ChampDisplay champList={champions} />
         </div>
         <Banner />
       </div>

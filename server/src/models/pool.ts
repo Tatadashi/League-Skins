@@ -4,7 +4,7 @@ import pg from "pg";
 dotenv.config();
 
 const { Pool } = pg;
-export const skinsPool = new Pool({
+export const pool = new Pool({
   connectionString: process.env.DB_CONNECTION_STRING,
 });
 
