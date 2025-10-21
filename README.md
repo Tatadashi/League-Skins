@@ -22,6 +22,7 @@ other: https://uxwing.com/license/
     - wishlist - https://uxwing.com/heart-thin-icon/
     - collection - https://uxwing.com/list-round-bullet-icon/
     - about - https://uxwing.com/list-round-bullet-icon/
+    - search - https://uxwing.com/search-line-icon/
 
 All other art from Riot fetched from CommunityDragon Raws
 

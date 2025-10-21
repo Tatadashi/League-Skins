@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
 import Banner from "../../../components/bannerArt/banner";
 import Footer from "../../../components/footer/footer";
+import ChampionFilter from "../../../feature/filter/championFilter/championFilter";
 import ChampDisplay from "../../../feature/squareDisplay/champDisplay/champDisplay";
 
 export interface Champ {
@@ -40,15 +42,34 @@ export default function Home() {
     fetchChamps();
   }, [setChampions]);
 
+  //filter by name (caseinsensitive)
+  function filterChamps(query: string) {
+    const filtered: Champ[] = [];
+    champions?.forEach((champ) => {
+      if (champ.name.toLowerCase().includes(query.toLowerCase())) {
+        filtered.push(champ);
+      }
+    });
+    return filtered;
+  }
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  //bandage solution to default query params
+  if (searchParams.size === 0) {
+    setSearchParams("?q=");
+  }
+  const queryParams = String(searchParams.get("q"));
+  const filtered: Champ[] = filterChamps(queryParams);
   return (
     <>
       <Header />
       <Title />
       <div className="page-layout">
         <Sidebar />
-        {/* sort + filter and pages */}
         <div>
-          <ChampDisplay champList={champions} />
+          {/* sort + filter and pages */}
+          <ChampionFilter />
+          <ChampDisplay champList={filtered} />
         </div>
         <Banner />
       </div>
