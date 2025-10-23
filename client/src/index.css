@@ -8,6 +8,14 @@
   --color-dusk-blue: #2e3461;
   --color-tan: #ffe6bd;
   --color-brown: #594d3a;
+  --color-dark-brown: #1b1a18;
+  --color-standard: #65f384;
+  --color-epic: #83f4f8;
+  --color-legendary: #d54458;
+  --color-mythic: #eb40f1;
+  --color-ultimate: #f08305;
+  --color-exalted: #cacf70;
+  --color-transcendent: #c1c1e6;
   --font-roboto: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-roman:
     "Times New Roman", system-ui, Avenir, Helvetica, Arial, sans-serif;

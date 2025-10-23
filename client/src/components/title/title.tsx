@@ -6,14 +6,14 @@ export default function Title() {
           <h1 className="title-text absolute top-0 right-15">League</h1>
           <img
             className="h-10 w-10 invert dark:invert-0 "
-            src="src/assets/titleSpark.png"
+            src="/src/assets/titleSpark.png"
             alt=""
           />
           <h1 className="title-text absolute top-0 left-15">Skins</h1>
         </div>
       </div>
       <div className="md:flex h-[4vh] md:h-[20vh] lg:h-[32vh]">
-        <div className="grow aspect-[4/1] bg-cover bg-[url(src/assets/Aatrox_Sword_light.PNG)] dark:bg-[url(src/assets/Aatrox_Sword_dark.PNG)] mt-5 hidden md:block" />
+        <div className="grow aspect-[4/1] bg-cover bg-[url(assets/Aatrox_Sword_light.PNG)] dark:bg-[url(assets/Aatrox_Sword_dark.PNG)] mt-5 hidden md:block" />
       </div>
     </div>
   );
