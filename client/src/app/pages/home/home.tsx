@@ -11,8 +11,11 @@ import ChampDisplay from "../../../feature/squareDisplay/champDisplay/champDispl
 export interface Champ {
   id: number;
   name: string;
+  description: string;
   alias: string;
-  square_url: string;
+  square_url: string,
+  splash_url: string;
+  tile_url: string;
   release_date: Date;
   created_at?: Date;
 }

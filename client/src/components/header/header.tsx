@@ -17,11 +17,11 @@ export default function Header() {
         className="flex-btwn grow h-[15vh] md:h-[9vh] [@media(max-height:640px)]:h-[20vh] p-3"
         aria-label="Supplementary navigation"
       >
-        <Link
-          to="https://github.com/Tatadashi"
+        <a
+          href="https://github.com/Tatadashi"
           className="header-link bg-[url(assets/github.svg)] dark:invert"
           aria-label="Github"
-        ></Link>
+        ></a>
         <div className="flex gap-x-2 md:gap-x-5">
           <button
             onClick={toggleTheme}

@@ -7,6 +7,7 @@
   --color-navy-blue: #111428;
   --color-dusk-blue: #2e3461;
   --color-tan: #ffe6bd;
+  --color-brown: #594D3A;
   --font-roboto: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
   --font-roman:
     "Times New Roman", system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -37,6 +38,19 @@
   /* neeko is 255px x 1100px */
   .page-layout {
     @apply grid grid-cols-[110px_1fr] sm:grid-cols-[110px_1fr_255px] h-[1100px];
+  }
+
+  /* for specific champs or skins */
+  .page-single-layout {
+    @apply grid grid-cols-[110px_1fr] sm:grid-cols-[110px_1fr]
+  }
+
+  .bg-center-sqr {
+    @apply aspect-square bg-center bg-no-repeat
+  }
+
+  .specific-page-link {
+    @apply border-3 border-black dark:border-tan bg-stone-700 h-[50%] sm:h-[90%] lg:h-[25%]
   }
 }
 

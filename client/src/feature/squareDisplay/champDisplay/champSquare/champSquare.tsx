@@ -8,8 +8,8 @@ interface Props {
 
 export default function ChampSquare({ id, name, imgUrl }: Props) {
   return (
-    <div className="flex flex-col text-center text-md text-tan">
-      <Link to={`/:"${id}"`} className="aspect-square border border-tan">
+    <div className="flex flex-col text-center text-md dark:text-tan">
+      <Link to={`/${id}`} className="aspect-square border border-black dark:border-tan">
         <img src={imgUrl} alt={name} />
       </Link>
       {name}

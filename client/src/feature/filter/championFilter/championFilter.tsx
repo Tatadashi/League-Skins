@@ -24,7 +24,7 @@ export default function ChampionFilter() {
           onChange={(e) => setValue(e.target.value)}
         />
         <button
-          className="aspect-square bg-center bg-no-repeat bg-size-[70%] bg-[url(assets/search.svg)] h-[25px] sm:h-[30px]"
+          className="bg-center-sqr bg-size-[70%] bg-[url(assets/search.svg)] h-[25px] sm:h-[30px]"
           type="submit"
           aria-label="Search Champion"
         />
