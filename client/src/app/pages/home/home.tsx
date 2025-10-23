@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
@@ -13,7 +13,7 @@ export interface Champ {
   name: string;
   description: string;
   alias: string;
-  square_url: string,
+  square_url: string;
   splash_url: string;
   tile_url: string;
   release_date: Date;
@@ -21,29 +21,15 @@ export interface Champ {
 }
 
 export default function Home() {
-  const [champions, setChampions] = useState<Champ[]>();
-
+  //redirect to make sure there is default query params
+  const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
-    const fetchChamps = async () => {
-      try {
-        // localStorage.clear();
-        if (!("champs" in localStorage)) {
-          fetch("http://localhost:6543/champion")
-            .then((response) => response.json())
-            .then((data) => {
-              localStorage.setItem("champs", JSON.stringify(data));
-              setChampions(data);
-            });
-        } else {
-          const data = JSON.parse(String(localStorage.getItem("champs")));
-          setChampions(data);
-        }
-      } catch (error) {
-        console.error("Error fetching champs", error);
-      }
-    };
-    fetchChamps();
-  }, [setChampions]);
+    if (searchParams.size === 0) {
+      setSearchParams("?q=");
+    }
+  });
+
+  const champions: Champ[] = JSON.parse(String(localStorage.getItem("champs")));
 
   //filter by name (caseinsensitive)
   function filterChamps(query: string) {
@@ -56,11 +42,6 @@ export default function Home() {
     return filtered;
   }
 
-  const [searchParams, setSearchParams] = useSearchParams();
-  //bandage solution to default query params
-  if (searchParams.size === 0) {
-    setSearchParams("?q=");
-  }
   const queryParams = String(searchParams.get("q"));
   const filtered: Champ[] = filterChamps(queryParams);
   return (

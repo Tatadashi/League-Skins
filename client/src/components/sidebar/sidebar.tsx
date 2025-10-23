@@ -5,7 +5,7 @@ export default function Sidebar() {
       className="bg-blue-400 dark:bg-dusk-blue flex flex-col gap-10 pt-10 px-2"
       aria-label="Main navigation"
     >
-      <LinkBox name="Home" page="/" imgUrl="src/assets/home.svg" />
+      <LinkBox name="Home" page="/?q=" imgUrl="src/assets/home.svg" />
       <LinkBox name="Weekly Sales" page="/sale" imgUrl="src/assets/sale.svg" />
       <LinkBox
         name="Wishlist"

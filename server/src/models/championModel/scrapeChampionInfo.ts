@@ -14,15 +14,15 @@ interface ChampionProps {
 //CommunityDragon doesn't keep release dates bcz Rito prob doesn't keep them in files, so using wiki
 async function fetchDatesHtml() {
   return fetch(
-    "https://wiki.leagueoflegends.com/en-us/List_of_champions#References"
+    "https://wiki.leagueoflegends.com/en-us/List_of_champions#References",
   )
-  .then((response) => response.text())
-  .then((html) => {
-    return html;
-  })
-  .catch((error) => {
-    throw new Error("Failed to fetch champ dates: ", error);
-  });
+    .then((response) => response.text())
+    .then((html) => {
+      return html;
+    })
+    .catch((error) => {
+      throw new Error("Failed to fetch champ dates: ", error);
+    });
 }
 
 //use datesHtml to get list of champion obj with id + dates
@@ -31,10 +31,10 @@ async function getReleaseDatesFromWiki() {
   const html: string = await fetchDatesHtml();
   const dom = new JSDOM(html);
   const datesParentElement = dom.window.document.querySelectorAll(
-    ".article-table tbody tr"
+    ".article-table tbody tr",
   );
-  
-    datesParentElement.forEach((date, index) => {
+
+  datesParentElement.forEach((date, index) => {
     if (index === 0) return;
 
     let champName: string | null =
@@ -55,7 +55,7 @@ async function getReleaseDatesFromWiki() {
 //has all the champion json files with id, name, desc, alias, content id, sqr portrait path, roles
 async function fetchChampIDs() {
   return fetch(
-    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json"
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json",
   )
     .then((response) => response.json())
     .catch((error) => {
@@ -77,7 +77,7 @@ async function getChampIDs() {
       name: champ.name,
       description: champ.description,
       alias: champ.alias,
-      square_url: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champ.id}.png`
+      square_url: `https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-icons/${champ.id}.png`,
     });
   });
   return champions;
@@ -86,21 +86,22 @@ async function getChampIDs() {
 //has all skins by id + skinID, name, splashArtCenteredPath (hoverCard + champSelect), splashArtUncenteredPath (full splash), tilePath, loadScreenPath, rarity, isLegacy, desc, chromas + path, skinline, borderPath, etc
 async function fetchSkins() {
   return fetch(
-    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json"
+    "https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/skins.json",
   )
-  .then((response) => response.json())
-  .catch((error) => {
-    console.error("Failed to fetch champ imgs", error);
-  });
+    .then((response) => response.json())
+    .catch((error) => {
+      console.error("Failed to fetch champ imgs", error);
+    });
 }
 
 //img path in skins.json is not same as through cdragon (prob so can use any version/latest/pbe and other stuff)
 function convertImgPath(path: string) {
-  let newPath: string = "https://raw.communitydragon.org/latest/plugins" + path.toLowerCase(); 
+  let newPath: string =
+    "https://raw.communitydragon.org/latest/plugins" + path.toLowerCase();
   //for some reason og path has assets/ASSETS
   newPath = newPath.replace(
     "lol-game-data/assets",
-    "rcp-be-lol-game-data/global/default"
+    "rcp-be-lol-game-data/global/default",
   );
 
   return newPath;
@@ -125,7 +126,8 @@ async function addChampImgs(champions: ChampionProps[]) {
 
 let champions: ChampionProps[] = [];
 const championIDs: ChampionProps[] = await getChampIDs();
-const championReleases: { name: string, release_date: string}[] = await getReleaseDatesFromWiki();
+const championReleases: { name: string; release_date: string }[] =
+  await getReleaseDatesFromWiki();
 
 //combine championsIDs and championReleases using id into champions[]
 championIDs.forEach((champ) => {

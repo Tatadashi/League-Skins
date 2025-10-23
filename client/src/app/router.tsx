@@ -11,7 +11,7 @@ const routes = [
   },
   {
     path: "/:championID",
-    element: <Champion />
+    element: <Champion />,
   },
   {
     path: "/sale",
