@@ -8,7 +8,7 @@ interface SkinProps {
 //squares are champSelect icons
 export default function SkinDisplay({ skinList }: SkinProps) {
   return (
-    <ul className="grid grid-cols-[repeat(auto-fill,_120px)] grid-rows-[repeat(4,_220px)] gap-x-1 sm:gap-x-5 gap-y-8 h-[1015px] sm:p-5 place-content-center-safe overflow-clip">
+    <ul className="grid grid-cols-[repeat(auto-fill,_120px)] grid-rows-[repeat(4,_220px)] gap-x-1 sm:gap-x-5 gap-y-5 lg:gap-y-8 h-[1015px] lg:py-5 sm:px-5 place-content-center-safe overflow-clip">
       {skinList &&
         skinList.map((skin: Skin, index) => (
           <div

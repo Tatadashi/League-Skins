@@ -40,7 +40,8 @@ Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 # Roadmap
 
 - pagination?
-- update DB show differences
+- update DB show differences (update localStorage, prob track version number)
+- backup db with pgdump and RLS db?
 
 future
 - champion page should have skins
@@ -52,7 +53,6 @@ future
 - tests front/back
 - more sorting categories (classes, roles, regions)
 - use cloudflare r2 to host images (not sure how much, hopefully free) the cache images too (this is so not rely on CDD for images) 
-- backup db with pgdump and RLS db?
 - weekly sales includes hextech rotation (maybe super limited stuff like that jax skin)
 - newest skins + patch
 - include pbe (upcoming skins, pbe tag) or have page for that
