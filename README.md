@@ -38,12 +38,6 @@ Thanks to the Riot Games Community (Wiki, CommunityDragon, 3rd Party Devs)
 Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 
 # Roadmap
-
-- pagination?
-- update DB show differences (update localStorage, prob track version number)
-- backup db with pgdump and RLS db?
-
-future
 - champion page should have skins
 - filter skinlines
 - sort alphabetical, release, champion (alphabetical), tier

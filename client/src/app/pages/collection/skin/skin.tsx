@@ -59,7 +59,7 @@ export default function Skin() {
               </h2>
               <div className="dark:text-tan mt-10 lg:absolute lg:bottom-[-100px]">
                 <h3>ID: {skin.id}</h3>
-                <h3>Release Date: {skin.release_date.substring(0, 10)}</h3>
+                <h3>Release Date: {skin.release_date}</h3>
               </div>
             </div>
           </div>
