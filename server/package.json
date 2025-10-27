@@ -9,7 +9,8 @@
     "dev": "concurrently \"tsc --noEmit -w\" \"tsx watch src/server.ts\"",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "populate": "tsc --noEmit && tsx src/models/championModel/populateChampion.ts",
+    "populate:champ": "tsc --noEmit && tsx src/models/championModel/populateChampion.ts",
+    "populate:skin": "tsc --noEmit && tsx src/models/skinModel/populateSkin.ts",
     "prettier": "prettier . --check",
     "prettier:fix": "npm run prettier -- --write",
     "format": "npm run prettier:fix && npm run lint:fix"

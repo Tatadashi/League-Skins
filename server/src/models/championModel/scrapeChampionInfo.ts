@@ -1,6 +1,6 @@
 import { JSDOM } from "jsdom";
 
-interface ChampionProps {
+export interface ChampionProps {
   id: number;
   name: string;
   description?: string;

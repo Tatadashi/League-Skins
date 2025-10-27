@@ -7,8 +7,8 @@ import skinRouter from "./routes/skinRouter.ts";
 
 const app = express();
 
-app.options("/champion/:championId", cors());
-app.options("/skin/:skinId", cors());
+app.options("/champion/:championID", cors());
+app.options("/skin/:skinID", cors());
 
 const dynamicCorsOptions = function (
   req: Request,

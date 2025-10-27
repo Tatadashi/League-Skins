@@ -9,7 +9,6 @@ dotenv.config();
 //assets github.com/CommunityDragon/Docs/blob/master/assets.md
 //cdn endpoints (tileUrl) https://cdn.communitydragon.org/endpoints
 
-//does not work to update (releaseDate != date)
 const createTableSQL = `
 CREATE TABLE IF NOT EXISTS champions (
   id INT PRIMARY KEY,
@@ -75,6 +74,11 @@ RETURNING
   merge_action() as action,
   ch.*;`;
 
+//dropping bcz temp table not disappearing (maybe its a time issue when running populate back to back)
+const dropSQL = `
+DROP table champions_new
+;`;
+
 async function main() {
   console.log("seeding...");
   const client = new Client({
@@ -95,6 +99,8 @@ async function main() {
   } catch (err) {
     console.error(err);
   }
+
+  await client.query(dropSQL);
   await client.end();
   console.log("done");
 }
