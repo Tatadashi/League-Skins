@@ -9,30 +9,36 @@ import SkinFilter from "../../../feature/filter/skinFilter/skinFilter";
 import Pagination from "../../../utils/pagination";
 import SkinDisplay from "../../../feature/squareDisplay/skinDisplay/skinDisplay";
 
+//gets buggy on really thin phone screens, not willing to make pagination, skinSquare, filter any thinner
+
 export interface Skin {
+  skin_id: number;
   id: number;
   name: string;
-  description: string;
-  alias: string;
-  square_url: string;
+  champion_name: string;
+  wiki_name: string;
+  rarity: string;
+  skin_line: string | null;
   splash_url: string;
   tile_url: string;
-  release_date: Date;
-  created_at?: Date;
+  updated_at?: Date;
 }
 
 //filter by name (caseinsensitive)
 function filterSkins(query: string) {
   const filtered: Skin[] = [];
   skins?.forEach((skin) => {
-    if (skin.name.toLowerCase().includes(query.toLowerCase())) {
+    if (
+      skin.name.toLowerCase().includes(query.toLowerCase()) ||
+      skin.champion_name.toLowerCase().includes(query.toLowerCase())
+    ) {
       filtered.push(skin);
     }
   });
   return filtered;
 }
 
-const skins: Skin[] = JSON.parse(String(localStorage.getItem("champs")));
+const skins: Skin[] = JSON.parse(String(localStorage.getItem("skins")));
 
 export default function Collection() {
   //redirect to make sure there is default query params
@@ -84,7 +90,6 @@ export default function Collection() {
       <div className="page-layout">
         <Sidebar />
         <div>
-          {/* sort + filter and pages */}
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <SkinFilter />
             <Pagination

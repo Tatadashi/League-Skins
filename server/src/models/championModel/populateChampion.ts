@@ -40,7 +40,6 @@ SELECT *
 FROM json_to_recordset($1) AS x(id INT, name TEXT, description TEXT, alias TEXT, square_url TEXT, splash_url TEXT, tile_url TEXT, release_date TEXT); 
   `;
 
-//insert part kinda untested
 const mergeSQL = `
 MERGE INTO champions ch
 USING champions_new chn

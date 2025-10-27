@@ -1,7 +1,7 @@
 import express from "express";
 import type { Request } from "express";
 import cors, { type CorsOptions } from "cors";
-import catalogRouter from "./routes/catalogRouter.ts";
+import versionRouter from "./routes/versionRouter.ts";
 import championRouter from "./routes/championRouter.ts";
 import skinRouter from "./routes/skinRouter.ts";
 
@@ -32,7 +32,7 @@ app.use(cors(dynamicCorsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/", catalogRouter);
+app.use("/", versionRouter);
 app.use("/champion", championRouter);
 app.use("/skin", skinRouter);
 

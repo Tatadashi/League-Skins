@@ -14,11 +14,11 @@ export default function SkinFilter() {
   return (
     <div className="py-2 lg:py-5 sm:px-5">
       <form
-        className="bg-white px-1 py-2 flex-btwn items-center w-[250px]"
+        className="bg-white px-1 py-2 flex-btwn items-center w-[230px]"
         onSubmit={handleSearch}
       >
         <input
-          className="bg-white text-black text-lg"
+          className="bg-white text-black text-md"
           type="text"
           placeholder="Search Skin"
           value={term}

@@ -16,8 +16,8 @@ export interface Champ {
   square_url: string;
   splash_url: string;
   tile_url: string;
-  release_date: Date;
-  created_at?: Date;
+  release_date: string;
+  updated_at?: Date;
 }
 
 export default function Home() {
@@ -51,7 +51,6 @@ export default function Home() {
       <div className="page-layout">
         <Sidebar />
         <div>
-          {/* sort + filter and pages */}
           <ChampionFilter />
           <ChampDisplay champList={filtered} />
         </div>

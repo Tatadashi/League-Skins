@@ -14,6 +14,9 @@ Icons:
 github: https://devicon.dev/
 title sparkle: https://www.rawpixel.com/image/6194095/png-aesthetic-sticker
 user: Helmet Bro Summoner Icon - https://wiki.leagueoflegends.com/en-us/File:Helmet_Bro_profileicon.png
+rarity gems: 
+    - standard (rare) - https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-collections/global/default/images/gems/rare.png
+    - all other rarities (at the bottom) - https://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/rarity-gem-icons/
 other: https://uxwing.com/license/
     - light mode - https://uxwing.com/day-sunny-icon/
     - dark mode - https://uxwing.com/moon-line-icon/
@@ -50,6 +53,9 @@ Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 - weekly sales includes hextech rotation (maybe super limited stuff like that jax skin)
 - newest skins + patch
 - include pbe (upcoming skins, pbe tag) or have page for that
-- tag system (unlikely since prob need big db which can't afford, skinlines doable)
+- tag system (unlikely , skinlines doable)
+- search depends on word by word instead of whol string
+- allow search alt names (ez, mf, gp)
 - some sort of import/export file (json?) system as alternative to logging in
 - skin promo charity section
+- forms (HoL, Ult Sera, Ult Lux?)

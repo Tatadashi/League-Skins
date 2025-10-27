@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { initializeTheme, watchTheme, setTheme } from "../../utils/theme";
 export default function Header() {
   initializeTheme();
@@ -28,11 +28,11 @@ export default function Header() {
             className="header-link bg-[url(assets/darkMode.svg)] dark:bg-[url(assets/lightMode.svg)] dark:invert"
             aria-label="Change Theme"
           ></button>
-          <Link
+          {/* <Link
             to="/about"
             className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] hover:brightness-300 invert dark:invert-0"
             aria-label="user"
-          ></Link>
+          ></Link> */}
         </div>
       </nav>
     </header>

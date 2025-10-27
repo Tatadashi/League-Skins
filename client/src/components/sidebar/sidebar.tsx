@@ -6,12 +6,12 @@ export default function Sidebar() {
       aria-label="Main navigation"
     >
       <LinkBox name="Home" page="/?q=" imgUrl="/src/assets/home.svg" />
-      <LinkBox name="Weekly Sales" page="/sale" imgUrl="/src/assets/sale.svg" />
+      {/* <LinkBox name="Weekly Sales" page="/sale" imgUrl="/src/assets/sale.svg" />
       <LinkBox
         name="Wishlist"
         page="/wishlist"
         imgUrl="/src/assets/wishlist.svg"
-      />
+      /> */}
       <LinkBox
         name="Collection"
         page="/collection"

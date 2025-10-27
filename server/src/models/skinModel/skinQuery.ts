@@ -2,7 +2,7 @@ import { pool } from "../pool.ts";
 
 export async function getAllSkins() {
   const { rows } = await pool.query(
-    "SELECT * FROM skins ORDER BY championName",
+    "SELECT * FROM skins ORDER BY champion_name",
   );
   return rows;
 }

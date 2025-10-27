@@ -41,7 +41,6 @@ SELECT *
 FROM json_to_recordset($1) AS x(skin_id INT, id INT, name TEXT, champion_name TEXT, wiki_name TEXT, rarity TEXT, skin_line TEXT, splash_url TEXT, tile_url TEXT); 
   `;
 
-//insert part kinda untested
 const mergeSQL = `
 MERGE INTO skins sk
 USING skins_new skn
@@ -66,8 +65,8 @@ WHEN NOT MATCHED THEN
     skn.id,
     skn.name,
     skn.champion_name,
-    skn.rarity,
     skn.wiki_name,
+    skn.rarity,
     skn.skin_line,
     skn.splash_url,
     skn.tile_url,
