@@ -1,5 +1,5 @@
 import { useSearchParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
 import Sidebar from "../../../components/sidebar/sidebar";
@@ -7,6 +7,7 @@ import Banner from "../../../components/bannerArt/banner";
 import Footer from "../../../components/footer/footer";
 import ChampionFilter from "../../../feature/filter/championFilter/championFilter";
 import ChampDisplay from "../../../feature/squareDisplay/champDisplay/champDisplay";
+import type { Dispatch, SetStateAction } from "react";
 
 export interface Champ {
   id: number;
@@ -29,7 +30,13 @@ export default function Home() {
     }
   });
 
-  const champions: Champ[] = JSON.parse(String(localStorage.getItem("champs")));
+  const [champions, setChampions]: [
+    Champ[],
+    Dispatch<SetStateAction<Champ[]>>,
+  ] = useState([] as Champ[]);
+  useEffect(() => {
+    setChampions(JSON.parse(String(localStorage.getItem("champs"))));
+  }, []);
 
   //filter by name (caseinsensitive)
   function filterChamps(query: string) {

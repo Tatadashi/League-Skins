@@ -8,6 +8,7 @@ import Footer from "../../../components/footer/footer";
 import SkinFilter from "../../../feature/filter/skinFilter/skinFilter";
 import Pagination from "../../../utils/pagination";
 import SkinDisplay from "../../../feature/squareDisplay/skinDisplay/skinDisplay";
+import type { Dispatch, SetStateAction } from "react";
 
 //gets buggy on really thin phone screens, not willing to make pagination, skinSquare, filter any thinner
 
@@ -24,23 +25,27 @@ export interface Skin {
   updated_at?: Date;
 }
 
-//filter by name (caseinsensitive)
-function filterSkins(query: string) {
-  const filtered: Skin[] = [];
-  skins?.forEach((skin) => {
-    if (
-      skin.name.toLowerCase().includes(query.toLowerCase()) ||
-      skin.champion_name.toLowerCase().includes(query.toLowerCase())
-    ) {
-      filtered.push(skin);
-    }
-  });
-  return filtered;
-}
-
-const skins: Skin[] = JSON.parse(String(localStorage.getItem("skins")));
-
 export default function Collection() {
+  const [skins, setSkins]: [Skin[], Dispatch<SetStateAction<Skin[]>>] =
+    useState([] as Skin[]);
+  useEffect(() => {
+    setSkins(JSON.parse(String(localStorage.getItem("skins"))));
+  }, []);
+
+  //filter by name (caseinsensitive)
+  function filterSkins(query: string) {
+    const filtered: Skin[] = [];
+    skins?.forEach((skin) => {
+      if (
+        skin.name.toLowerCase().includes(query.toLowerCase()) ||
+        skin.champion_name.toLowerCase().includes(query.toLowerCase())
+      ) {
+        filtered.push(skin);
+      }
+    });
+    return filtered;
+  }
+
   //redirect to make sure there is default query params
   const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
