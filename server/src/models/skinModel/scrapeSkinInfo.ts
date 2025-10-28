@@ -24,7 +24,7 @@ interface SkinLine {
 
 //has all the champion json files with id, name, desc, alias, content id, sqr portrait path, roles
 async function fetchChampIDs() {
-  return fetch("http://localhost:6543/champion")
+  return fetch("https://league-skins-backend.vercel.app/champion")
     .then((response) => response.json())
     .catch((error) => {
       console.error("Failed to fetch champ ids: ", error);
@@ -69,7 +69,8 @@ function convertImgPath(path: string) {
 //remove k infront "kEpic" and convert if it is "kNoRarity"
 function convertRarity(rarity: string) {
   let converted = rarity.slice(1);
-  if (converted === "NoRarity") {
+  //for some reason arcane skins are this
+  if (converted === "NoRarity" || converted === "Rare") {
     converted = "Standard";
   }
 

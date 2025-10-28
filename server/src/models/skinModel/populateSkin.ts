@@ -46,7 +46,7 @@ MERGE INTO skins sk
 USING skins_new skn
 ON sk.skin_id = skn.skin_id
 WHEN MATCHED THEN
-  UPDATE SET splash_url = skn.splash_url, tile_url = skn.tile_url, updated_at = default
+  UPDATE SET rarity = skn.rarity, splash_url = skn.splash_url, tile_url = skn.tile_url, updated_at = default
 WHEN NOT MATCHED THEN
   INSERT (
   skin_id,
