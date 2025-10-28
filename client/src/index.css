@@ -70,4 +70,8 @@
   .flex-btwn {
     @apply flex justify-between;
   }
+
+  .link-about {
+    @apply text-orange-700 dark:text-blue-500;
+  }
 }
