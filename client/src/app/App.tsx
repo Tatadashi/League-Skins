@@ -10,27 +10,9 @@ watchTheme();
 
 function App() {
   useEffect(() => {
-    const fetchSkins = async () => {
-      try {
-        //secondary is just in case user deletes localStorage data
-        if (
-          !("skins" in localStorage) ||
-          localStorage.version !== "Patch 25.21"
-        ) {
-          fetch("https://league-skins-backend.vercel.app/skin")
-            .then((response) => response.json())
-            .then((data) => {
-              localStorage.setItem("skins", JSON.stringify(data));
-            });
-        }
-      } catch (error) {
-        console.error("Error fetching skins", error);
-      }
-    };
-
     const fetchVersion = async () => {
       try {
-        if (localStorage.version !== "Patch 25.21") {
+        if (localStorage.version !== "Patch 25.21 e1") {
           fetch("https://league-skins-backend.vercel.app/")
             .then((response) => response.text())
             .then((data) => localStorage.setItem("version", data));
@@ -53,7 +35,6 @@ function App() {
     //both since champ + skins is main thing
     const fetchBoth = async () => {
       try {
-        await fetchSkins();
         await fetchVersion();
         await fetchFavorites();
       } catch (error) {
