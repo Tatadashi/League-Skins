@@ -1,7 +1,7 @@
 import Home from "./pages/home/home.tsx";
 import Champion from "./pages/home/champion/champion.tsx";
 import Sale from "./pages/sale/sale.tsx";
-import Wishlist from "./pages/wishlist/wishlist.tsx";
+import Favorite from "./pages/favorite/favorite.tsx";
 import Collection from "./pages/collection/collection.tsx";
 import Skin from "./pages/collection/skin/skin.tsx";
 import About from "./pages/about/about.tsx";
@@ -19,8 +19,8 @@ const routes = [
     element: <Sale />,
   },
   {
-    path: "/wishlist",
-    element: <Wishlist />,
+    path: "/favorite",
+    element: <Favorite />,
   },
   {
     path: "/collection",

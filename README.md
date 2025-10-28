@@ -22,7 +22,8 @@ other: https://uxwing.com/license/
     - dark mode - https://uxwing.com/moon-line-icon/
     - home - https://uxwing.com/instagram-home-feed-icon/
     - sale - https://uxwing.com/tag-line-icon/
-    - wishlist - https://uxwing.com/heart-thin-icon/
+    - favorite - https://uxwing.com/heart-thin-icon/
+    - unfavorite - https://uxwing.com/broken-heart-icon/
     - collection - https://uxwing.com/list-round-bullet-icon/
     - about - https://uxwing.com/list-round-bullet-icon/
     - search - https://uxwing.com/search-line-icon/
@@ -59,3 +60,4 @@ Roboto (sidebar/about): https://fonts.google.com/specimen/Roboto
 - some sort of import/export file (json?) system as alternative to logging in
 - skin promo charity section
 - forms (HoL, Ult Sera, Ult Lux?)
+- faster way to unfavorite

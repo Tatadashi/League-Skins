@@ -54,12 +54,23 @@ function App() {
       }
     };
 
+    const fetchFavorites = async () => {
+      try {
+        if (!("favorites" in localStorage)) {
+          localStorage.favorites = JSON.stringify([]);
+        }
+      } catch (error) {
+        console.error("Error fetching favorites", error);
+      }
+    };
+
     //both since champ + skins is main thing
     const fetchBoth = async () => {
       try {
         await fetchChamps();
         await fetchSkins();
         await fetchVersion();
+        await fetchFavorites();
       } catch (error) {
         console.error("Error fetching both", error);
       }

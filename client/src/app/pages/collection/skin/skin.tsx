@@ -6,6 +6,7 @@ import Title from "../../../../components/title/title";
 import Sidebar from "../../../../components/sidebar/sidebar";
 import { borderColors } from "../../../../utils/borderColors";
 import Footer from "../../../../components/footer/footer";
+import { useState } from "react";
 
 export default function Skin() {
   const { skinID } = useParams();
@@ -18,6 +19,45 @@ export default function Skin() {
   const champ: Champ = champData.find(
     (champData: Champ) => champData.name === skin.champion_name,
   );
+
+  const favoriteData = JSON.parse(String(localStorage.getItem("favorites")));
+  const favorite: Skin | undefined = favoriteData.find(
+    (skinData: Skin) => skinData.skin_id === skin.skin_id,
+  );
+
+  const isFavorited = favorite === undefined ? false : true;
+  const [favorited, setFavorited] = useState(isFavorited);
+
+  function findFavoriteIndex(stored: Skin[]) {
+    let favoriteIndex: number = 0;
+    for (let i = 0; i < stored.length; i++) {
+      if (stored[i].skin_id === skin.skin_id) {
+        favoriteIndex = i;
+      }
+    }
+
+    return favoriteIndex;
+  }
+
+  const toggleFavorite = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    e.preventDefault();
+    //get current favorite list
+    const stored: Skin[] = JSON.parse(
+      String(localStorage.getItem("favorites")),
+    );
+
+    if (!favorited) {
+      stored.push(skin);
+    } else {
+      const storedIndex = findFavoriteIndex(stored);
+      stored.splice(storedIndex, 1);
+    }
+
+    localStorage.setItem("favorites", JSON.stringify(stored));
+    setFavorited(!favorited);
+  };
 
   return (
     <>
@@ -66,15 +106,21 @@ export default function Skin() {
               <h2 className="text-2xl sm:text-4xl xlg:text-5xl text-amber-900 dark:text-brown">
                 {skin.champion_name}
               </h2>
-              <div className="flex flex-row justify-around items-center dark:text-tan mt-10 lg:absolute lg:top-[-150px] lg:left-[-50px] lg:gap-10 min-w-[25vw]">
+              <div className="flex flex-row justify-center lg:justify-around items-center dark:text-tan mt-10 lg:absolute lg:top-[-150px] lg:left-[-50px] gap-5 lg:gap-10 min-w-[25vw]">
                 <div className="p-2 border rounded-4xl">
                   <h3>Skin Line: {skin.skin_line}</h3>
                 </div>
                 <img
+                  className="aspect-square h-[50px] lg:h-[80px]"
                   src={`/src/assets/${skin.rarity.toLowerCase()}.png`}
                   alt=""
                 />
               </div>
+              <button
+                className={`absolute bottom-[70px] left-[75%] lg:bottom-[-100px] ${favorited ? "bg-[url(assets/unfavorite.svg)]" : "bg-[url(assets/favorite.svg)]"} bg-center-sqr lg:bg-[center_top_0.9rem] bg-size-[90%] bg-blend-overlay ${favorited ? "bg-stone-300" : "bg-red-300"} border-2 border-black dark:border-green-500 p-5 lg:p-10 rounded-full`}
+                onClick={(e) => toggleFavorite(e)}
+                aria-label={`${favorited}: ? "Remove from Favorite" : "Add to Favorite"`}
+              ></button>
             </div>
           </div>
         </div>

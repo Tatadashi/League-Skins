@@ -29,7 +29,7 @@ export default function Header() {
             aria-label="Change Theme"
           ></button>
           {/* <Link
-            to="/about"
+            to="c"
             className="header-link bg-[url(assets/Helmet_Bro_profileicon.png)] hover:brightness-300 invert dark:invert-0"
             aria-label="user"
           ></Link> */}
