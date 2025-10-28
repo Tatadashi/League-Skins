@@ -4,11 +4,7 @@ export default function Title() {
       <div className="absolute top-3">
         <div className="relative">
           <h1 className="title-text absolute top-0 right-15">League</h1>
-          <img
-            className="h-10 w-10 invert dark:invert-0 "
-            src="/src/assets/titleSpark.png"
-            alt=""
-          />
+          <div className="h-10 w-10 invert dark:invert-0 bg-[url(assets/titleSpark.png)] bg-cover" />
           <h1 className="title-text absolute top-0 left-15">Skins</h1>
         </div>
       </div>

@@ -28,6 +28,16 @@ export default function Skin() {
   const isFavorited = favorite === undefined ? false : true;
   const [favorited, setFavorited] = useState(isFavorited);
 
+  const rarityGems: { [gems: string]: string } = {
+    standard: "bg-[url(assets/standard.png)]",
+    epic: "bg-[url(assets/epic.png)]",
+    legendary: "bg-[url(assets/legendary.png)]",
+    mythic: "bg-[url(assets/mythic.png)]",
+    ultimate: "bg-[url(assets/ultimate.png)]",
+    exalted: "bg-[url(assets/exalted.png)]",
+    transcendent: "bg-[url(assets/transcendent.png)]",
+  };
+
   function findFavoriteIndex(stored: Skin[]) {
     let favoriteIndex: number = 0;
     for (let i = 0; i < stored.length; i++) {
@@ -110,10 +120,8 @@ export default function Skin() {
                 <div className="p-2 border rounded-4xl">
                   <h3>Skin Line: {skin.skin_line}</h3>
                 </div>
-                <img
-                  className="aspect-square h-[50px] lg:h-[80px]"
-                  src={`/src/assets/${skin.rarity.toLowerCase()}.png`}
-                  alt=""
+                <div
+                  className={`aspect-square ${rarityGems[skin.rarity.toLowerCase()]} bg-cover h-[50px] lg:h-[80px]`}
                 />
               </div>
               <button

@@ -5,19 +5,11 @@ export default function Sidebar() {
       className="bg-blue-400 dark:bg-dusk-blue flex flex-col gap-10 pt-10 px-2"
       aria-label="Main navigation"
     >
-      <LinkBox name="Home" page="/?q=" imgUrl="/src/assets/home.svg" />
+      <LinkBox name="Home" page="/?q=" imgUrl="home" />
       {/* <LinkBox name="Weekly Sales" page="/sale" imgUrl="/src/assets/sale.svg" /> */}
-      <LinkBox
-        name="Favorite"
-        page="/favorite"
-        imgUrl="/src/assets/favorite.svg"
-      />
-      <LinkBox
-        name="Collection"
-        page="/collection"
-        imgUrl="/src/assets/collection.svg"
-      />
-      <LinkBox name="About" page="/about" imgUrl="/src/assets/about.svg" />
+      <LinkBox name="Favorite" page="/favorite" imgUrl="favorite" />
+      <LinkBox name="Collection" page="/collection" imgUrl="collection" />
+      <LinkBox name="About" page="/about" imgUrl="about" />
     </nav>
   );
 }
