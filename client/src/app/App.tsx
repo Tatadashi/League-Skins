@@ -13,7 +13,7 @@ function App() {
           !("champs" in localStorage) ||
           localStorage.version !== "Patch 25.21"
         ) {
-          fetch("http://localhost:6543/champion")
+          fetch("https://league-skins-one.vercel.app/champion")
             .then((response) => response.json())
             .then((data) => {
               localStorage.setItem("champs", JSON.stringify(data));
@@ -31,7 +31,7 @@ function App() {
           !("skins" in localStorage) ||
           localStorage.version !== "Patch 25.21"
         ) {
-          fetch("http://localhost:6543/skin")
+          fetch("https://league-skins-one.vercel.app/skin")
             .then((response) => response.json())
             .then((data) => {
               localStorage.setItem("skins", JSON.stringify(data));
@@ -45,7 +45,7 @@ function App() {
     const fetchVersion = async () => {
       try {
         if (localStorage.version !== "Patch 25.21") {
-          fetch("http://localhost:6543/")
+          fetch("https://league-skins-one.vercel.app/")
             .then((response) => response.text())
             .then((data) => localStorage.setItem("version", data));
         }
