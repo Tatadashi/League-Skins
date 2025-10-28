@@ -36,7 +36,7 @@ export default function Home() {
         //secondary is just in case user deletes localStorage data
         if (
           !("champs" in localStorage) ||
-          localStorage.version !== "Patch 25.21"
+          localStorage.version !== "Patch 25.21 e1"
         ) {
           fetch("https://league-skins-backend.vercel.app/champion")
             .then((response) => response.json())

@@ -43,7 +43,7 @@ export default function Collection() {
         //secondary is just in case user deletes localStorage data
         if (
           !("skins" in localStorage) ||
-          localStorage.version !== "Patch 25.21"
+          localStorage.version !== "Patch 25.21 e1"
         ) {
           fetch("https://league-skins-backend.vercel.app/skin")
             .then((response) => response.json())
