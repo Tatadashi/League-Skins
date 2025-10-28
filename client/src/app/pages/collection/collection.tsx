@@ -1,4 +1,4 @@
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Header from "../../../components/header/header";
 import Title from "../../../components/title/title";
@@ -26,11 +26,41 @@ export interface Skin {
 }
 
 export default function Collection() {
+  //make sure there is champ info for skins.tsx
+  const navigate = useNavigate();
+  if (!("champs" in localStorage)) {
+    navigate("/");
+  }
+
   const [skins, setSkins]: [Skin[], Dispatch<SetStateAction<Skin[]>>] =
-    useState([] as Skin[]);
+    useState(() => {
+      const skinData = localStorage.getItem("skins");
+      return skinData ? JSON.parse(skinData) : null;
+    });
   useEffect(() => {
-    setSkins(JSON.parse(String(localStorage.getItem("skins"))));
-  }, []);
+    const fetchSkins = async () => {
+      try {
+        //secondary is just in case user deletes localStorage data
+        if (
+          !("skins" in localStorage) ||
+          localStorage.version !== "Patch 25.21"
+        ) {
+          fetch("https://league-skins-backend.vercel.app/skin")
+            .then((response) => response.json())
+            .then((data) => {
+              setSkins(data);
+              localStorage.setItem("skins", JSON.stringify(data));
+            });
+        }
+      } catch (error) {
+        console.error("Error fetching skins", error);
+      }
+    };
+
+    if (!skins) {
+      fetchSkins();
+    }
+  }, [skins]);
 
   //filter by name (caseinsensitive)
   function filterSkins(query: string) {

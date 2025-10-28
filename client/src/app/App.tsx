@@ -1,29 +1,15 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import routes from "./router";
+import { initializeTheme, watchTheme } from "../utils/theme";
 import { useEffect } from "react";
 
 const router = createBrowserRouter(routes);
 
+initializeTheme();
+watchTheme();
+
 function App() {
   useEffect(() => {
-    const fetchChamps = async () => {
-      try {
-        //secondary is just in case user deletes localStorage data
-        if (
-          !("champs" in localStorage) ||
-          localStorage.version !== "Patch 25.21"
-        ) {
-          fetch("https://league-skins-backend.vercel.app/champion")
-            .then((response) => response.json())
-            .then((data) => {
-              localStorage.setItem("champs", JSON.stringify(data));
-            });
-        }
-      } catch (error) {
-        console.error("Error fetching champs", error);
-      }
-    };
-
     const fetchSkins = async () => {
       try {
         //secondary is just in case user deletes localStorage data
@@ -67,7 +53,6 @@ function App() {
     //both since champ + skins is main thing
     const fetchBoth = async () => {
       try {
-        await fetchChamps();
         await fetchSkins();
         await fetchVersion();
         await fetchFavorites();

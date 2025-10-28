@@ -1,16 +1,13 @@
 // import { Link } from "react-router-dom";
-import { initializeTheme, watchTheme, setTheme } from "../../utils/theme";
+import { setTheme } from "../../utils/theme";
+const toggleTheme = () => {
+  if (localStorage.theme === "dark") {
+    setTheme("light");
+  } else {
+    setTheme("dark");
+  }
+};
 export default function Header() {
-  initializeTheme();
-  watchTheme();
-
-  const toggleTheme = () => {
-    if (localStorage.theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
-    }
-  };
   return (
     <header className="flex-center md:mx-10">
       <nav
