@@ -8,6 +8,8 @@ to date per latest patch.
 
 "League Skins" isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks or registered trademarks of Riot Games, Inc.
 
+<img width="1920" height="1930" alt="Screenshot League Skins" src="https://github.com/user-attachments/assets/3174b18d-934b-4273-86ee-943bf68cf640" />
+
 # Credits
 
 Programmer: Kenny Luu
