@@ -24,7 +24,7 @@ export default function About() {
             </p>
             <br />
             <p>
-              It is a JamStack PERN project built with TypeScript, styled with
+              It is a PERN project built with TypeScript, styled with
               TailwindCSS, and formatted using ESLint and Prettier. The data is
               parsed from CommunityDragon and the Official League Wiki.
             </p>
